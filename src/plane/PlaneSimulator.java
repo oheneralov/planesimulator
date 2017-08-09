@@ -1,15 +1,11 @@
 package plane;
 
-import java.awt.Font;
-
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
-import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -17,6 +13,14 @@ import javafx.scene.transform.Rotate;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
+/**
+ * @version 1.0
+ * @author Oleksandr Generalov
+ * <p>
+ * Represents a plane simulator
+ * </p>
+ *
+ */
 public class PlaneSimulator extends Application {
 
 	public static void main(String[] args) {
