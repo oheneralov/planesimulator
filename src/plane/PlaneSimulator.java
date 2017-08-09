@@ -12,6 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.scene.layout.GridPane;
 
 /**
  * @version 1.0
@@ -34,7 +35,10 @@ public class PlaneSimulator extends Application {
 		// TODO Auto-generated method stub
 		Group plane = new Group();
 		Wing wing1 = new Wing();
-		Button leftButton = new Button("Rotate left");
+		Button leftButton = new Button("left");
+		Button upButton = new Button("up");
+		Button rightButton = new Button("right");
+		Button downButton = new Button("down");
 		// leftButton.setLayoutX(500);
 		//leftButton.setLayoutY(400);
 		plane.getChildren().add(wing1.toShape());
@@ -43,7 +47,14 @@ public class PlaneSimulator extends Application {
 	    header.setFont(javafx.scene.text.Font.font("System", FontWeight.BLACK, 16));
 	    generalPane.getChildren().add(header);
 	    generalPane.getChildren().add(plane);
-	    generalPane.getChildren().add(leftButton);
+	    
+	    GridPane commandPanel = new GridPane();
+	    commandPanel.add(leftButton, 0, 1);
+	    commandPanel.add(upButton, 1, 0);
+	    commandPanel.add(downButton, 1, 2);
+	    commandPanel.add(rightButton, 2, 1);
+	    
+	    generalPane.getChildren().add(commandPanel);
 		Scene scene = new Scene(generalPane, 600, 500);
 		
 		scene.setFill(Color.rgb(230, 242, 255));
