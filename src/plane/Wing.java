@@ -4,6 +4,7 @@ import javafx.scene.shape.Box;
 import javafx.scene.paint.*;
 
 /**
+ * Represents a plane wings
  * @author Oleksandr Generalov
  * @version 1.0
  * This class represents the plane wings

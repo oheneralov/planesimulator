@@ -15,11 +15,9 @@ import javafx.scene.text.Text;
 import javafx.scene.layout.GridPane;
 
 /**
+ * Represents a plane simulator
  * @version 1.0
  * @author Oleksandr Generalov
- * <p>
- * Represents a plane simulator
- * </p>
  *
  */
 public class PlaneSimulator extends Application {
@@ -35,12 +33,6 @@ public class PlaneSimulator extends Application {
 		// TODO Auto-generated method stub
 		Group plane = new Group();
 		Wing wing1 = new Wing();
-		Button leftButton = new Button("left");
-		Button upButton = new Button("up");
-		Button rightButton = new Button("right");
-		Button downButton = new Button("down");
-		// leftButton.setLayoutX(500);
-		//leftButton.setLayoutY(400);
 		plane.getChildren().add(wing1.toShape());
 	    VBox generalPane = new VBox();
 	    Text header = new Text("Plane Simmulator");
@@ -48,33 +40,19 @@ public class PlaneSimulator extends Application {
 	    generalPane.getChildren().add(header);
 	    generalPane.getChildren().add(plane);
 	    
-	    GridPane commandPanel = new GridPane();
-	    commandPanel.add(leftButton, 0, 1);
-	    commandPanel.add(upButton, 1, 0);
-	    commandPanel.add(downButton, 1, 2);
-	    commandPanel.add(rightButton, 2, 1);
-	    
-	    generalPane.getChildren().add(commandPanel);
+
+	    CommandPanel commandPanel = new CommandPanel(plane);
+	    generalPane.getChildren().add(commandPanel.getCommandPanel());
 		Scene scene = new Scene(generalPane, 600, 500);
 		
 		scene.setFill(Color.rgb(230, 242, 255));
 
 		primaryStage.setScene(scene);
 
-		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent e) {
-				System.out.println("Hello World");
-				plane.setRotationAxis(Rotate.Y_AXIS);
-				plane.setRotate(plane.getRotate() + 10);
-
-			}
-		};
-		// Registering the event filter
-		leftButton.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
-
 		primaryStage.show();
 
 	}
+
+
 
 }
