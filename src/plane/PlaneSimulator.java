@@ -1,18 +1,14 @@
 package plane;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.stage.Stage;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.Group;
-import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.transform.Rotate;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.scene.layout.GridPane;
 
 /**
  * Represents a plane simulator
@@ -31,19 +27,28 @@ public class PlaneSimulator extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
+		assert true: "Everything is ok!";
 		Group plane = new Group();
 		Wing wing1 = new Wing();
+		Motor motor = new Motor(10, 2, 10, 100, 5);
+		
+		Fuselage fuselage1 = new Fuselage(100, 6);
 		plane.getChildren().add(wing1.toShape());
-	    VBox generalPane = new VBox();
-	    Text header = new Text("Plane Simmulator");
+		plane.getChildren().add(fuselage1.toShape());
+		plane.getChildren().add(motor.toShape());
+	    VBox generalPanel = new VBox();
+	    Text header = new Text("Plane Simulator");
 	    header.setFont(javafx.scene.text.Font.font("System", FontWeight.BLACK, 16));
-	    generalPane.getChildren().add(header);
-	    generalPane.getChildren().add(plane);
+	    generalPanel.setSpacing(50);
+	    generalPanel.setPadding(new Insets(10, 50, 50, 50));
+	    generalPanel.getChildren().add(header);
+	    generalPanel.getChildren().add(plane);
 	    
 
 	    CommandPanel commandPanel = new CommandPanel(plane);
-	    generalPane.getChildren().add(commandPanel.getCommandPanel());
-		Scene scene = new Scene(generalPane, 600, 500);
+	    generalPanel.getChildren().add(commandPanel.getCommandPanel());
+	    
+		Scene scene = new Scene(generalPanel, 1200, 1000);
 		
 		scene.setFill(Color.rgb(230, 242, 255));
 
@@ -52,7 +57,7 @@ public class PlaneSimulator extends Application {
 		primaryStage.show();
 
 	}
-
+ 
 
 
 }

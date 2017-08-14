@@ -70,9 +70,9 @@ public class Wing implements Wings {
 	 */
 	Wing() {
 		wing1 = new Box();
-		wing1.setHeight(100);
-		wing1.setWidth(200);
-		wing1.setDepth(150);
+		wing1.setHeight(30);
+		wing1.setWidth(400);
+		wing1.setDepth(3);
 		PhongMaterial material = new PhongMaterial();
 		material.setDiffuseColor(Color.BLUE);
 		wing1.setMaterial(material);
