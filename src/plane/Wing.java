@@ -74,7 +74,7 @@ public class Wing implements Wings {
 		wing1.setWidth(400);
 		wing1.setDepth(3);
 		PhongMaterial material = new PhongMaterial();
-		material.setDiffuseColor(Color.BLUE);
+		material.setDiffuseColor(Color.ALICEBLUE);
 		wing1.setMaterial(material);
 
 	}

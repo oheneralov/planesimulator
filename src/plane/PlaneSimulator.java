@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.scene.transform.Rotate;
 
 /**
  * Represents a plane simulator
@@ -26,34 +27,36 @@ public class PlaneSimulator extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
-		assert true: "Everything is ok!";
 		Group plane = new Group();
 		Wing wing1 = new Wing();
 		Motor motor = new Motor(10, 2, 10, 100, 5);
 		
 		Fuselage fuselage1 = new Fuselage(100, 6);
+		Ground ground = new Ground(700, 1100);
+		plane.getChildren().add(ground.toShape());
 		plane.getChildren().add(wing1.toShape());
 		plane.getChildren().add(fuselage1.toShape());
 		plane.getChildren().add(motor.toShape());
+		
+		
 	    VBox generalPanel = new VBox();
 	    Text header = new Text("Plane Simulator");
 	    header.setFont(javafx.scene.text.Font.font("System", FontWeight.BLACK, 16));
-	    generalPanel.setSpacing(50);
-	    generalPanel.setPadding(new Insets(10, 50, 50, 50));
-	    generalPanel.getChildren().add(header);
-	    generalPanel.getChildren().add(plane);
 	    
-
+	    generalPanel.setSpacing(5);
+	    generalPanel.setPadding(new Insets(1, 5, 5, 5));
+	    generalPanel.getChildren().add(header);
+	    
+        ///rotate plane a bit
+	    plane.setRotationAxis(Rotate.X_AXIS);
+		plane.setRotate(plane.getRotate() + 40);
 	    CommandPanel commandPanel = new CommandPanel(plane);
 	    generalPanel.getChildren().add(commandPanel.getCommandPanel());
+	    generalPanel.getChildren().add(plane); 
 	    
 		Scene scene = new Scene(generalPanel, 1200, 1000);
-		
 		scene.setFill(Color.rgb(230, 242, 255));
-
 		primaryStage.setScene(scene);
-
 		primaryStage.show();
 
 	}

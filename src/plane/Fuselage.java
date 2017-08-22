@@ -30,7 +30,7 @@ public class Fuselage {
 		fuselage.setRadius(radius);
 
 		PhongMaterial material = new PhongMaterial();
-		material.setDiffuseColor(Color.BLUE);
+		material.setDiffuseColor(Color.ALICEBLUE);
 		fuselage.setMaterial(material);
 
 	}

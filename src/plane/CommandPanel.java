@@ -45,6 +45,8 @@ public class CommandPanel {
 		rightButton.setMinWidth(100);
 		Button downButton = new Button("down");
 		downButton.setMinWidth(100);
+		Button start = new Button("Start");
+		Button stop = new Button("Stop");
 		// leftButton.setLayoutX(500);
 		// leftButton.setLayoutY(400);
 		commandPanel = new GridPane();
@@ -52,6 +54,8 @@ public class CommandPanel {
 		commandPanel.add(upButton, 1, 0);
 		commandPanel.add(downButton, 1, 2);
 		commandPanel.add(rightButton, 2, 1);
+		commandPanel.add(start, 0, 4);
+		commandPanel.add(stop, 1, 4);
 
 		// Registering the event filter
 		leftButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -89,6 +93,13 @@ public class CommandPanel {
 				plane.setRotationAxis(Rotate.X_AXIS);
 				plane.setRotate(plane.getRotate() - 10);
 
+			}
+		});
+		
+		start.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent e) {
+				plane.getChildren().get(2).setLayoutX(150);
+				
 			}
 		});
 

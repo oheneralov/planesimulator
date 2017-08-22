@@ -36,7 +36,7 @@ public class Motor {
 		supporter.setDepth(depth);
 		supporter.setLayoutY(50);
 		PhongMaterial material = new PhongMaterial();
-		material.setDiffuseColor(Color.BLUE);
+		material.setDiffuseColor(Color.ALICEBLUE);
 		supporter.setMaterial(material);
 		Box propeller = new Box();
 		propeller.setHeight(50);
@@ -46,6 +46,7 @@ public class Motor {
 		materialPropeller.setDiffuseColor(Color.BLACK);
 		propeller.setMaterial(materialPropeller);
 		propeller.setLayoutY(propeller.getLayoutY() + 50);
+		//propeller.setTranslateX(propeller.getTranslateX() - 10);
 		this.engine = new Group();
 		engine.getChildren().addAll(propeller, supporter);
 		engine.setRotationAxis(Rotate.X_AXIS);
